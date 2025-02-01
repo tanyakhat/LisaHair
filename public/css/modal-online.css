@@ -1,0 +1,158 @@
+.custom-side-modal-header h5{
+    color: #000000;
+    font-size: 25px;
+    font-family: "Deledda Open", serif;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    top: 0;
+    left: 10px;
+    padding: 10px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.btn-close {
+    color:#000000;
+    background-color: white;
+    width: 10px;
+    position: absolute;
+    left: -10px;
+    top: 51px;
+}
+/*Стиль для модального окна Онлайн-запись*/
+.custom-side-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 360px;
+    display: none;
+    z-index: 1050;
+}
+
+.custom-side-modal-dialog {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+
+.custom-side-modal-content {
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    overflow-y: auto;
+}
+
+.custom-side-modal-header {
+    background-color: #FFFFFF;
+    display: flex;
+    margin-top: 5px;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+
+
+.custom-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 10px 20px;
+    background:none;
+    border: none;
+}
+
+.custom-btn i {
+    margin-left: auto; /* Автоматически отправляем стрелку вправо */
+}
+.btn-secondary {
+    background: none;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-left: -4px;
+}
+.custom-side-modal .form-select, .custom-side-modal .btn {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    margin-left: 5px;
+    padding: 8px;
+}
+
+.custom-side-modal.show {
+    display: block;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        right: -400px;
+    }
+    to {
+        right: 0;
+    }
+}
+.selection-list {
+    color: #000000;
+}
+.service-item {
+    margin: 10px;
+}
+
+.selection-group ul{
+    list-style-type:none;
+    margin-left: -30px;
+    font-family: "Deledda Open",serif;
+    font-size: 15px;
+}
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .custom-side-modal {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 80%;
+        width: 420px;
+        display: none;
+        z-index: 1050;
+    }
+    .custom-side-modal-header h5{
+         color: #000000;
+         font-size: 30px;
+         font-family: "Deledda Open", serif;
+         line-height: 1.2em;
+         text-transform: uppercase;
+         top: 0;
+         left: 10px;
+         padding: 10px;
+         font-weight: 400;
+         text-align: center;
+     }
+    .custom-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        padding: 10px 20px;
+        background:none;
+        border: none;
+    }
+    .custom-side-modal .form-select, .custom-side-modal .btn {
+        text-decoration: none;
+        color: black;
+        font-size: 23px;
+        margin-left: 8px;
+        padding: 8px;
+    }
+
+}
+
+@media (max-width: 932px) {
+
+}

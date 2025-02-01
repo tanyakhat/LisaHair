@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.card-header {
+    font-size: 20px;
+    border-bottom: 1px ;
+}
+
+.card-body {
+    font-size: 18px;
+    font-family: "Deledda Open", serif;
+
+}
+.btn-password {
+    color: white;
+    text-decoration: none;
+}
+.nav-link {
+
+    color: #fff;
+    text-decoration: none;
+}
+
+
