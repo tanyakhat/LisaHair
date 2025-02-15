@@ -10,8 +10,7 @@
 
 {{-- Стиль для основного контента Main.blade--}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-{{--    Стили для шрифтов--}}
-    <link rel="stylesheet" href="{{ asset ('css/fonts.css') }}">
+
 </head>
 <body>
 @auth
@@ -22,7 +21,7 @@
             @csrf
         </form>
         <br>
-        <a href="#" class="btn btn-danger" style="color: black;text-decoration: none"
+        <a href="{{route('home')}}" class="btn btn-danger" style="color: black;text-decoration: none"
            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Выйти
         </a>
@@ -39,5 +38,6 @@
 </main>
 
 <script src="{{ asset('js/script.js') }}"></script>
+<script src="{{asset('js/language.js')}}"></script>
 </body>
 </html>

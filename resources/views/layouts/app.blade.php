@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 {{-- Стиль для страницы Login   --}}
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-    <link rel="stylesheet" href="{{ asset ('css/fonts.css') }}">
 {{-- Подключение библиотеки icons--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 

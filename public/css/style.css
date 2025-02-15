@@ -1,4 +1,27 @@
-
+@font-face {
+    font-family: 'Deledda Open';
+    src: url('../fonts/Deledda Open Light.ttf') format('truetype');
+    font-style: normal; /* Стиль: нормальный */
+}
+@font-face {
+    font-family: 'Roboto Flex';
+    src: url("../fonts/RobotoFlex-Regular.ttf");
+    font-style: normal; /* Стиль: нормальный */
+}
+@font-face {
+    font-family: 'Arsenal-Regular';
+    src: url("../fonts/Arsenal-Regular.ttf");
+    font-style: normal; /* Стиль: нормальный */
+}
+@font-face {
+    font-family: 'Bitter-Regular';
+    src: url("../fonts/Bitter-Regular.ttf");
+    font-style: normal; /* Стиль: нормальный */
+}
+html{
+    height: 100%;
+    overflow-x: hidden;
+}
 /*Общие стили*/
 body {
     background-color: #000;
@@ -6,13 +29,12 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6; /* Межстрочный интервал для всего текста */
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
     user-select: none;
+    height: 100%;
+    overflow-x: hidden;
 
 }
-h1, h2, p {
+h1, h2, p, a{
     margin: 0;
 }
 
@@ -22,23 +44,115 @@ button {
     font-size: 20px;
     cursor: pointer;
     margin: 10px;
-    font-family: 'Deledda Open', serif;
+    font-family: 'Deledda Open', serif, Georgia, Times, serif;
     text-transform: uppercase;
     transition: background-color 0.3s ease;
 }
 
 /*Стили для шапки*/
+
 header {
     text-align: center;
-    padding: 2px;
+    padding: 0;
+    margin:0;
     border-bottom: 1px ;
 }
 
-img {
-    max-width: 170px;
+/*Cтили навигации, где логотип, номер и режим работы */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    width: 80%;
+    margin: 0 auto;
 }
 
-header p {
+.header-logo-container {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.logo-img {
+    max-width: 180px;
+    margin-left: 15%;
+    transition: transform 0.8s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.2);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-icons img {
+    width: 27px;
+    transition: transform 0.3s ease;
+}
+
+.header-icons img:hover {
+    transform: scale(1.2);
+}
+.header-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-number {
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.header-operating-mode {
+    color: #888;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Deledda Open", serif;
+}
+
+/*Переключение языков*/
+.language-switcher {
+    position: absolute;
+    top: 32px;
+    left: 1500px;
+    z-index: 1000;
+    display: flex;
+    gap: 5px;
+
+}
+
+.language-switcher button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.language-switcher button:hover {
+    background: #f0f0f0;
+    color: black;
+}
+
+/*Стили для Инфы про студию и кнопки Онлайн-запись, ватсап*/
+.header-studio {
+    text-align: center;
+    padding: 35px 0;
+    margin-top: 20px;
+    width: 100%;
+}
+.header-studio p {
     font-size: 40px;
     margin-top: 20px;
     font-family: 'Deledda Open', serif;
@@ -56,32 +170,52 @@ header p {
     margin-left: 50px;
 }
 
+/*АНИМАЦИЯ ДЛЯ ШАПКИ*/
+.header-container, .header-studio, .services-section , .stock_info, .Masters-lisa, .questions{
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInSlide 0.5s ease-out forwards;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
 
 .custom-button {
     background-color: transparent;
     border: 2px solid #fff;
     color: #fff;
-    padding: 10px 30px;
-    font-size: 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-}
-.custom-button {
-    border: 2px solid #ffffff;
     padding: 5px 20px;
     font-size: 20px;
     cursor: pointer;
     margin: 1px;
     font-family: 'Deledda Open', serif;
     text-transform: uppercase;
-    transition: background-color 0.3s ease;
-    background-color: transparent;
-    color: #fff;
+    transition: all 0.3s ease;
 }
 
 .custom-button:hover {
     background-color: #fff; /* Белый фон при наведении */
+    transform: scale(1.05);
+    animation: pulse 1.5s infinite;
     color: #000; /* Чёрный текст при наведении */
 }
 
@@ -89,7 +223,7 @@ header p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px 0;
+    margin: 28px 0;
 }
 
 .arrow-svg {
@@ -111,6 +245,7 @@ header p {
     60% {
         transform: translateY(-3px);
     }
+
 }
 
  /*Основной контент*/
@@ -176,7 +311,7 @@ section h2 {
 
 .services-section h3 {
     position: relative;
-    font-size: 25px;
+    font-size: 24px;
     line-height: 1.5;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -302,16 +437,22 @@ section h2 {
 .stock_slide {
     min-width: 100%; /* Каждый слайд занимает 100% ширины контейнера */
     position: relative;
+    transition: opacity 0.5s, transform 0.5s;
+}
+.stock_slide.active {
+    opacity: 1;
+    transform: scale(1.05);
 }
 .stock_slide img {
     position: relative;
     width: 100%;
+
     max-width: 600px;
     margin-right: 20px;
     border-radius: 10px;
     display: inline-block;
     border: 2px solid #ffffff;
-    opacity: 0.8;
+    opacity: 0.6;
     box-shadow: 0 5px 8px 0 rgba(170, 151, 110, 0.5);
     gap: 100px;
 }
@@ -334,6 +475,31 @@ section h2 {
     margin: 0;
     font-size: 1.8rem;
 }
+/* Индикаторы */
+.pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.pagination span {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.pagination span.active {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
 .custom-button-stock {
     margin: 20px;
     position: relative;
@@ -486,7 +652,9 @@ section h2 {
 
 /*Ответы*/
 .faq-answer{
-    display: none;
+    display: block;
+    overflow: hidden;
+    max-height: 0;
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 18px;
@@ -494,6 +662,7 @@ section h2 {
     font-family: "Arsenal-Regular", serif;
     font-weight: 100;
     color: grey;
+    transition: max-height 0.6s ease, padding 0.6s ease-out;
 }
 .faq-answer p{
     margin-top: 5px;
@@ -506,8 +675,20 @@ section h2 {
     letter-spacing: normal;
 }
 .faq-items.expanded .faq-answer {
-    display: block;
+    /*display: block;*/
+    max-height: 200px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
 }
+.faq-items.expanded .faq-questions h3 {
+    color: #aa976e; /* Изменение цвета заголовка при раскрытии */
+    opacity: 1;
+}
+
+.faq-items.expanded .toggle-btn {
+    transform: rotate(180deg); /* Поворот кнопки при раскрытии */
+}
+
 .faq-items.expanded .expanded {
     transform: rotate(180deg);
 }
@@ -574,42 +755,316 @@ hr {
     border-bottom: 1px solid #aa976e;
 }
 
-
 /* Адаптация для мобильных устройств */
+
+/*Планшет */
+@media (max-width: 992px) and (min-width: 768px) {
+    .header-container {
+        padding: 10px;
+    }
+    .logo-img {
+        max-width: 130px;
+    }
+    .header-studio p {
+        font-size: 28px;
+    }
+    .services-section h2 {
+        font-size: 26px;
+    }
+    .services-section h3 {
+        font-size: 18px;
+    }
+    .services-section p {
+        font-size: 16px;
+    }
+    .footer-content h2 {
+        font-size: 16px;
+    }
+    .footer-map iframe {
+        height: 180px;
+    }
+}
 @media (max-width: 768px) {
+    .header-container {
+        /*align-items: center;*/
+        /*flex-direction: row;*/
+        /*justify-content: space-between;*/
+        /*padding: 10px 10px;*/
+        max-width: 768px;
+        margin: auto;
+    }
+    .logo-img {
+        max-width: 150px;
+        margin-left: 210px;
+    }
+    .header-logo-container {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        left: 20px;
+    }
+    .header-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .language-switcher {
+        position: absolute;
+        top: 16px;
+        left: 636px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        text-align: center;
+    }
+    .language-switcher button{
+        background:none;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 11px;
+        color: #fff;
+        width: 40px;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+    .language-switcher button:hover {
+        background:#f0f0f0;
+        color: black;
+    }
+    .header-studio p {
+        font-size: 32px;
+    }
+    .services-wrapper {
+          max-width: 768px;
+          margin: auto;
+      }
+
+    .services-section h2 {
+        font-size: 27px;
+    }
+    .services-section h3 {
+        font-size: 20px;
+    }
+    .questions {
+        padding: 20px 40px; /* Уменьшаем внутренние отступы */
+    }
+
+    .questions h2 {
+        font-size: 24px; /* Уменьшаем размер заголовка */
+        margin-bottom: 15px; /* Уменьшаем отступ снизу */
+    }
+
+    .faq-questions h3 {
+        font-size: 18px; /* Уменьшаем размер заголовка вопроса */
+    }
+
+    .faq-answer p {
+        font-size: 14px; /* Уменьшаем размер текста ответа */
+        line-height: 1.4; /* Уменьшаем межстрочный интервал */
+    }
+
+    .faq-items {
+        padding: 8px 0; /* Уменьшаем отступы для каждого элемента */
+    }
+
+    .faq-items hr {
+        height: 40px; /* Уменьшаем высоту линии */
+        margin-top: 15px; /* Уменьшаем отступ сверху */
+    }
+
+    .toggle-btn {
+        font-size: 16px; /* Уменьшаем размер иконки переключения */
+    }
+
+    .faq-items.expanded .faq-answer {
+        max-height: 150px; /* Уменьшаем максимальную высоту раскрытого ответа */
+    }
+
+    .services-section p {
+        font-size: 18px;
+    }
+    .footer-content {
+        max-width: 768px;
+        margin: auto;
+    }
     .footer-content h2 {
         font-size: 18px;
     }
-    .footer-map iframe {
-        width: 70%; /* Карта займет всю ширину экрана */
-        height: 200px;
-    }
     .footer-links {
-
-        gap: 20px; /* Уменьшить расстояние между ссылками */
+        display: flex;
+        flex-direction: row; /* Элементы будут в одной строке */
+        gap: 20px; /* Расстояние между элементами */
+        font-size: 15px;
+        flex-wrap: wrap; /* Если элементов много, они переносятся на новую строку */
+        justify-content: center;
     }
     .footer-links a {
-        font-size: 15px;
+         color: #aa976e;
+         text-decoration: none;
+         font-weight: 500;
+         border-bottom: 1px solid transparent;
+         transition: all 0.3s ease;
+         text-align: center;
+         font-family: "Deledda Open", serif;
+         text-transform: uppercase;
+     }
+    .footer-links a:hover {
+        border-bottom: 1px solid #aa976e;
     }
 }
+@media (min-width: 1200px) {
 
-@media (max-width: 932px) {
-    img{
-        max-width:100px;
+    .header-container {
+        max-width: 1200px;
+        margin: auto;
     }
-    .footer-content h2 {
-        font-size: 15px;
+    .language-switcher {
+        position: absolute;
+        top: 40px;
+        left: 1220px;
+        z-index: 1000;
+        display: flex;
+        gap: 10px;
     }
-    .footer-map iframe {
-        width: 50%; /* Карта займет всю ширину экрана */
-        height: 100px;
+    .language-switcher button{
+        background:none;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 14px;
+        color: #fff;
+        transition: background 0.3s ease, color 0.3s ease;
     }
-    .footer-links {
-        gap: 20px; /* Уменьшить расстояние между ссылками */
+    .language-switcher button:hover {
+        background:#f0f0f0;
+        color: black;
     }
-    .footer-links a {
-        font-size: 20px;
+    .services-wrapper {
+        max-width: 1200px;
+        margin: auto;
+    }
+    .footer-content {
+        max-width: 1200px;
+        margin: auto;
     }
 }
+/*@media (max-width: 768px) {*/
+/*
+/*    body {*/
+/*        font-size: 16px;*/
+/*        padding: 0 10px;*/
+/*    }*/
+/*    .header-container {*/
+/*        flex-direction: row;*/
+/*        justify-content: space-between;*/
+/*        align-items: center;*/
+/*        padding: 10px 20px;*/
+/*    }*/
+/*    .header-logo-container  {*/
+/*        justify-content: center;*/
+/*        flex: 1;*/
+/*        display: flex;*/
+/*    }*/
+/*    .logo-img {*/
+/*        max-width: 150px;*/
+/*        margin-left: 0;*/
+/*    }*/
+/*    .language-switcher {*/
+/*        margin-right: 50px;*/
+/*    }*/
+/*    !*.language-btn {*!*/
+/*    !*    padding: 8px 16px;*!*/
+/*    !*    font-size: 14px;*!*/
+/*    !*    border: 1px solid #000;*!*/
+/*    !*    background-color: #fff;*!*/
+/*    !*    cursor: pointer;*!*/
+/*    !*    transition: background-color 0.3s;*!*/
+/*    !*}*!*/
+
+/*    !*.language-btn:hover {*!*/
+/*    !*    background-color: #f0f0f0;*!*/
+/*    !*}*!*/
+
+/*    .header-icons {*/
+/*        display: flex;*/
+/*        gap: 10px;*/
+/*        margin-right: 50px ;*/
+/*    }*/
+    /*.header-icons img {*/
+/*    !*    width: 22px;*!*/
+/*    !*}*!*/
+/*    .header-number {*/
+/*        font-size: 1rem;*/
+/*    }*/
+/*    .header-studio p {*/
+/*        font-size: 30px;*/
+/*        font-family: 'Deledda Open', serif;*/
+/*        color: #aa976e;*/
+/*        line-height: 1.1;*/
+/*        text-align: center;*/
+/*        text-transform: uppercase;*/
+/*    }*/
+/*    .header-socials {*/
+/*        flex: 0;*/
+/*        display: flex;*/
+/*        gap: 10px;*/
+/*    }*/
+/*    .services-wrapper {*/
+/*        flex-direction: column;*/
+/*        gap: 15px;*/
+/*    }*/
+/*    .services-section h2 {*/
+/*        font-size: 30px;*/
+/*    }*/
+/*    .services-section h3 {*/
+/*        font-size: 20px;*/
+/*    }*/
+/*    .services-section p {*/
+/*        font-size: 18px;*/
+/*    }*/
+/*    .img-container img {*/
+/*        max-width: 100%;*/
+/*    }*/
+/*    .button-container {*/
+/*        flex-direction: column;*/
+/*        gap: 20px;*/
+/*    }*/
+
+/*    .footer-content h2 {*/
+/*        font-size: 18px;*/
+/*    }*/
+
+/*    .footer-map iframe {*/
+/*        width: 70%; !* Карта займет всю ширину экрана *!*/
+/*        height: 200px;*/
+/*    }*/
+
+/*    .footer-links {*/
+/*        gap: 20px; !* Уменьшить расстояние между ссылками *!*/
+/*    }*/
+
+/*    .footer-links a {*/
+/*        font-size: 15px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 932px) {*/
+/*    img{*/
+/*        max-width:100px;*/
+/*    }*/
+/*    .footer-content h2 {*/
+/*        font-size: 15px;*/
+/*    }*/
+/*    .footer-map iframe {*/
+/*        width: 50%; !* Карта займет всю ширину экрана *!*/
+/*        height: 100px;*/
+/*    }*/
+/*    .footer-links {*/
+/*        gap: 20px; !* Уменьшить расстояние между ссылками *!*/
+/*    }*/
+/*    .footer-links a {*/
+/*        font-size: 20px;*/
+/*    }*/
+/*}*/
 
 

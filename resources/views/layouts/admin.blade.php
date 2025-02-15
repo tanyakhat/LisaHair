@@ -7,8 +7,7 @@
     <link rel="icon" href="{{ asset('img/logo/logo3.png')}}" type="image/x-icon">
 {{-- Стиль для админки   --}}
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-{{--  Стиль для подключение шрифтов--}}
-    <link rel="stylesheet" href="{{ asset ('css/fonts.css') }}">
+
     {{-- Подключение библиотеки icons--}}
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')}}">
 

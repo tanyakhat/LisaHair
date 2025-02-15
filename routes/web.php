@@ -24,11 +24,6 @@ Route::get('/login', function () {
     return view('auth.login'); // Страница входа
 })->name('login');
 
-### API ДЛЯ СЕРВИСОВ
-//Route::get('/api/services', function () {
-//    return response()->json(\App\Models\Service::all());
-//});
-
 ### АДМИН-ПАНЕЛЬ (ТОЛЬКО ДЛЯ АВТОРИЗОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ)
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'adminPanel'])->name('admin'); // Панель администратора
